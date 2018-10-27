@@ -1,0 +1,233 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[russian]{babel}
+
+\usepackage{amssymb,amsmath}
+\parindent=24pt
+\parskip=0pt
+\tolerance=2000
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+% Для контура вокруг текста
+\usepackage[outline]{contour}
+
+% Пакеты от tikz
+\usepackage{tikz}
+\usepackage{graphics}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+\usetikzlibrary{through}
+\usetikzlibrary{intersections}
+\usetikzlibrary{patterns}
+\usetikzlibrary{scopes}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot[color=red]{exp(x)};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}
+\addplot3[
+    surf,
+]
+{exp(-x^2-y^2)*x};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+    title=Example using the mesh parameter,
+    hide axis,
+    colormap/cool,
+]
+\addplot3[
+    mesh,
+    samples=50,
+    domain=-8:8,
+]
+{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+\addlegendentry{$\frac{sin(r)}{r}$}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $x$,
+    ylabel = {$f(x)$},
+]
+% Below the red parabola is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=red,
+]
+{x^2 - 2*x - 1};
+\addlegendentry{$x^2 - 2x - 1$}
+% Here the blue parabloa is defined
+\addplot [
+    domain=-10:10, 
+    samples=100, 
+    color=blue,
+    ]
+    {x^2 + 2*x + 1};
+\addlegendentry{$x^2 + 2x + 1$}
+ 
+\end{axis}
+\end{tikzpicture}
+
+% Задаем толщину контура
+\contourlength{0.7pt}
+
+\begin{tikzpicture}
+
+	% Grid
+	\draw[step=0.5, very thin, gray] (-0.5,-1) grid ++(5, 2);
+
+	% Graphs
+	\draw[domain=-0.5:4.5,smooth,samples=500,variable=\x,black, very thick] plot ({\x},{cos(deg(\x/4*2*pi))});
+
+	% Axes
+	\draw[->, thick] (-0.7, 0) -- (4.7, 0);
+	\draw[->, thick] (0, -1.2) -- (0, 1.2);
+
+	\draw[-, dashed] (2, 0) -- (2, -1);
+	\draw[-, dashed] (4, 0) -- (4, 1);
+
+	% Nodes
+	\draw (4.9,0) node {$x$};
+	\draw (0, 1.4) node {$y$};
+
+	\draw (-0.3, -0.2) node {\contour{white}{$0$}};
+	\draw (-0.3, 1) node {\contour{white}{$1$}};
+
+	\draw (1, -0.3) node {\contour{white}{$\frac{\pi}{2}$}};
+	\draw (2, -0.3) node {\contour{white}{$\pi$}};
+	\draw (3, -0.3) node {\contour{white}{$\frac{3\pi}{2}$}};
+	\draw (4, -0.3) node {\contour{white}{$2\pi$}};
+
+	\draw (2, 0.5) node[scale=1.3] {\contour{white}{$y=\cos x$}};
+
+	% Points
+	\fill [black] (0, 0) circle (1.5pt);
+	\fill [black] (0, 1) circle (1.5pt);
+	\fill [black] (1, 0) circle (1.5pt);
+	\fill [black] (2, 0) circle (1.5pt);
+	\fill [black] (3, 0) circle (1.5pt);
+	\fill [black] (4, 0) circle (1.5pt);
+
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	% Координаты всех необходимых точек
+	\coordinate (M) at (0.000,0.000);
+	\coordinate (B) at (-5.000,-4.000);
+	\coordinate (C) at (5.000,-4.000);
+	\coordinate (BN) at (-5.000,-4.100);
+	\coordinate (BU) at (-5.000,-3.900);
+	\coordinate (CN) at (5.000,-4.100);
+	\coordinate (CU) at (5.000,-3.900);
+	\coordinate (I1) at (-3.500,-4.000);
+	\coordinate (I2) at (3.500,-4.000);
+	\coordinate (J1) at (-3.000,-4.000);
+	\coordinate (J2) at (3.000,-4.000);
+	\coordinate (IN1) at (-3.500,-4.100);
+	\coordinate (IU1) at (-3.500,-3.900);
+	\coordinate (JN1) at (-3.000,-4.100);
+	\coordinate (JU1) at (-3.000,-3.900);
+	\coordinate (IN2) at (3.500,-4.100);
+	\coordinate (IU2) at (3.500,-3.900);
+	\coordinate (JN2) at (3.000,-4.100);
+	\coordinate (JU2) at (3.000,-3.900);
+	\coordinate (K1) at (-3.250,-4.000);
+	\coordinate (K2) at (3.250,-4.000);
+	\coordinate (F1) at (-2.112,-2.600);
+	\coordinate (F2) at (2.112,-2.600);
+	\coordinate (FX1) at (-2.112,-4.000);
+	\coordinate (FY1) at (-3.250,-2.600);
+	\coordinate (FX2) at (2.112,-4.000);
+	\coordinate (FY2) at (3.250,-2.600);
+	\coordinate (P1) at (-1.138,-1.400);
+	\coordinate (P2) at (1.138,-1.400);
+	\coordinate (PX1) at (-1.138,0.000);
+	\coordinate (PY1) at (0.000,-1.400);
+	\coordinate (PX2) at (1.138,0.000);
+	\coordinate (PY2) at (0.000,-1.400);
+
+	% Материальная точка
+	\fill [black] (M) circle (3.5pt);
+	
+	% Стержень
+	\draw[-,line width=2pt,color=gray!40] (B) -- (C);
+	\draw[-,color=gray!40,line width=1pt] (BN) -- (BU);
+	\draw[-,color=gray!40,line width=1pt] (CN) -- (CU);
+	
+	% Кусочки стержня
+	\draw[-,line width=2pt] (I1) -- (J1);
+	\draw[-,line width=2pt] (I2) -- (J2);
+	\draw[-,line width=1pt] (IN1) -- (IU1);
+	\draw[-,line width=1pt] (JN1) -- (JU1);
+	\draw[-,line width=1pt] (IN2) -- (IU2);
+	\draw[-,line width=1pt] (JN2) -- (JU2);
+	
+	% Пунктирные линии для сил
+	\draw[-,dashed,very thin] (F1) -- (P1);
+	\draw[-,dashed,very thin] (F2) -- (P2);
+	\draw[-,dashed,very thin] (F1) -- (FX1);
+	\draw[-,dashed,very thin] (F2) -- (FX2);
+	\draw[-,dashed,very thin] (F1) -- (FY1);
+	\draw[-,dashed,very thin] (F2) -- (FY2);
+
+	\draw[-,dashed,very thin] (P1) -- (PX1);
+	\draw[-,dashed,very thin] (P2) -- (PX2);
+	\draw[-,dashed,very thin] (P1) -- (PY1);
+	\draw[-,dashed,very thin] (P2) -- (PY2);
+	
+	% Силы
+	\draw[>=latex,->,very thin] (K1) -- (F1);
+	\draw[>=latex,->,very thin] (K2) -- (F2);
+	\draw[>=latex,->,very thin] (K1) -- (FX1);
+	\draw[>=latex,->,very thin] (K2) -- (FX2);
+	\draw[>=latex,->,very thin] (K1) -- (FY1);
+	\draw[>=latex,->,very thin] (K2) -- (FY2);
+	
+	\draw[>=latex,->,very thin] (M) -- (P1);
+	\draw[>=latex,->,very thin] (M) -- (P2);
+	\draw[>=latex,->,very thin] (M) -- (PX1);
+	\draw[>=latex,->,very thin] (M) -- (PX2);
+	\draw[>=latex,->,very thin] (M) -- (PY1);
+	\draw[>=latex,->,very thin] (M) -- (PY2);
+	
+	% Подписи сил
+	\node[yshift=12pt] at (PY2) {\contour{white}{$2\vec F_{iy}$}};
+	\node[yshift=8pt,xshift=-8pt] at (F2) {\contour{white}{$\vec F_{n-i}$}};
+	\node[yshift=8pt,xshift=8pt] at (F1) {\contour{white}{$\vec F_{i}$}};
+	\node[yshift=12pt] at (PX2) {\contour{white}{$\vec F_{(n-i)x}$}};
+	\node[yshift=12pt] at (PX1) {\contour{white}{$\vec F_{ix}$}};
+	\node[yshift=12pt] at (4,-2) {$ \boxed{\vec F_{ix} + \vec F_{(n-i)x} = \vec 0} $};
+	\node[yshift=12pt] at (-4,-2) {$ \boxed{\vec F_{iy} + \vec F_{(n-i)y} = 2\vec F_{iy}} $};
+	
+	% Подписи расстояний
+	\draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt}] (K1) -- ($ (B)!.5!(C) $) node [black,midway,yshift=-15pt] {\contour{white}{$l_i$}};
+	\draw [decorate,decoration={brace,amplitude=5pt,mirror,raise=2pt}] ($ (B)!.5!(C) $) -- (K2) node [black,midway,yshift=-15pt] {\contour{white}{$l_{n-i}$}};
+	\draw[-,dashed,very thin] (PY2) -- ($ (B)!.5!(C) $);
+	\node at ($ (PY2)!.5!($ (B)!.5!(C) $) $) {\contour{white}{$a$}};
+	\node[yshift=-25pt] at ($ (B)!.5!(C) $) {$\boxed{l_i=l_{n-i}}$};
+\end{tikzpicture}
+
+\end{document}
