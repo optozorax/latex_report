@@ -1,0 +1,68 @@
+\mytitlepage{прогресса}{1}{Создание отчетов}{Создание отчета в LaTeX}{ПМ-63}{Шепрут И.И.}{1}{Шепрут И.И.}{2018}
+
+\section{Цель работы}
+
+Показать пример использования LaTeX для написания отчетов.
+
+\section{Анализ задачи}
+
+Для этого необходимо собрать минимальное необходимое количество примеров, а так же оставить ссылки на документацию.
+
+\section{Код программы}
+
+Для демонстрации этого написан текущий файл с таким кодом:
+
+\mycodeinput{latex}{my_title.tex}{title.tex}
+\mycodeinput{latex}{file.tex}{file.tex}
+
+\section{Таблица}
+
+\tabulinesep=0.3mm
+\noindent\scriptsize{\texttt{\begin{tabu}{|X[-1,c]||X[1,c]|X[1,c]|X[1,c]|X[1,c]|X[1,c]|}
+\hline
+	\# & Название & Документация & Пример & PDF & Присутствует в этом файле \\
+\hline
+\hline
+	1 & Code & + & + & + & + \\
+\hline
+	2 & Graph & + & + & + & + \\
+\hline
+	3 & Graph by data & + & + & + & $\pm$ \\
+\hline
+	4 & List & + & + & + & + \\
+\hline
+	5 & Table & + & + & + & + \\
+\hline
+\end{tabu}}}
+
+\section{График}
+
+\noindent\begin{tikzpicture}
+	\begin{axis}[
+		xlabel=Пример,
+		ylabel=Присутствует в этом файле?,
+		width=\textwidth, 
+		height=5cm]
+	\addplot[color=red, mark=x] coordinates {
+		(1,1)
+		(2,1)
+		(3,0.5)
+		(4,1)
+		(5,1)
+	};
+	\end{axis}
+\end{tikzpicture}
+
+\section{Пример формулы}
+
+$$ f(x) = \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \underbrace{\frac{1}{n!}\int\limits_{x_0}^x f^{(n+1)}(t)(x-t)^n dt}_{\text{интегральный остаточный член}} $$
+
+\section{Выводы}
+
+\noindent\normalsize{\begin{easylist}
+\ListProperties(Hang1=true)
+& Было показано множество полезных примеров.
+& Документация расположена в папках примеров.
+& В ворде некоторые вещи делаются в миллион раз проще и в пару кликов.
+& Зато в латехе ничего не съедет, и можно автоматически генерировать таблицы.
+\end{easylist}}

@@ -9,3 +9,5 @@
 Документация по пакету [pgfplots](https://www.iro.umontreal.ca/~simardr/pgfplots.pdf) - пакет для создания графиков.
 
 Документация по пакету [pgfplotstable](http://pgfplots.sourceforge.net/pgfplotstable.pdf) - пакет для ввода таблиц.
+
+[Множество примеров pgfplots.](http://pgfplots.sourceforge.net/gallery.html)
