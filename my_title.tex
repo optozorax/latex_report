@@ -30,9 +30,10 @@
 % Для таблиц
 \usepackage{multirow}
 \usepackage{tabu}
+\usepackage{colortbl}
 
 % Создаем команду, чтобы переносить текст на новую строку внутри таблицы
-\newcommand{\tcell}[2][c]{\begin{tabu}[#1]{@{}c@{}}#2\end{tabu}}
+\newcommand{\tcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
 
 % Пакет для списков
 \usepackage[ampersand]{easylist}
