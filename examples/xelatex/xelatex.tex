@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage[russian]{babel}
+\usepackage{fontspec}
+\setmainfont[
+  Ligatures=TeX,
+  Extension=.otf,
+  BoldFont=cmunbx,
+  ItalicFont=cmunti,
+  BoldItalicFont=cmunbi,
+]{cmunrm}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\begin{document}
+\noindent
+\textrm{The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок, да выпей же чаю.}\\
+\textit{The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок, да выпей же чаю.}\\
+\textbf{The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок, да выпей же чаю.}\\
+\textbf{\textit{The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок, да выпей же чаю.}}\\
+\textsl{The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок, да выпей же чаю.}\\
+\textsc{The quick brown fox jumps over the lazy dog. Съешь ещё этих мягких французских булок, да выпей же чаю.}
+\end{document}

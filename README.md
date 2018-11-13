@@ -1,4 +1,4 @@
-# Отчеты по лабораторным работам в университете в `LaTeX`
+# Отчеты по лабораторным работам в `LaTeX` для университета
 
 Результат в [my_title.pdf](https://github.com/optozorax/latex_report/blob/master/my_title.pdf).
 
